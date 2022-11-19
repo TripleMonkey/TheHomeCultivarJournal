@@ -13,6 +13,7 @@ struct PlantDetail: View {
     @StateObject var currentPlant: Plant
     @State private var showSheet = false
     
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .center) {
