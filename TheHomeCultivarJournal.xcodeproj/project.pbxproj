@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E1E0575292813C500619D02 /* PlantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E0572292813C500619D02 /* PlantRow.swift */; };
+		9E1E0576292813C500619D02 /* PlantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E0573292813C500619D02 /* PlantDetail.swift */; };
+		9E1E0577292813C500619D02 /* PlantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E0574292813C500619D02 /* PlantList.swift */; };
+		9E1E0579292813E200619D02 /* EditPlantSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E0578292813E200619D02 /* EditPlantSheet.swift */; };
+		9E1E057C292813F000619D02 /* CareRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E057A292813F000619D02 /* CareRow.swift */; };
+		9E1E057D292813F000619D02 /* CareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E057B292813F000619D02 /* CareList.swift */; };
+		9EBE76E728FDB6E10061D377 /* ImagePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE76E628FDB6E10061D377 /* ImagePickerModel.swift */; };
+		9EBE76EB28FDB89A0061D377 /* CameraNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE76EA28FDB89A0061D377 /* CameraNavButton.swift */; };
+		9ED57DE229252E9A00711928 /* ObjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED57DE129252E9A00711928 /* ObjectViewModel.swift */; };
+		9ED57DF22925B71600711928 /* Plant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED57DF02925B71600711928 /* Plant+CoreDataClass.swift */; };
+		9ED57DF32925B71600711928 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED57DF12925B71600711928 /* Plant+CoreDataProperties.swift */; };
+		9EE3A89028D49C5E0053CA7E /* TheHomeCultivarJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3A88F28D49C5E0053CA7E /* TheHomeCultivarJournalApp.swift */; };
+		9EE3A89228D49C5E0053CA7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3A89128D49C5E0053CA7E /* ContentView.swift */; };
+		9EE3A89428D49C670053CA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE3A89328D49C670053CA7E /* Assets.xcassets */; };
+		9EE3A89728D49C670053CA7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE3A89628D49C670053CA7E /* Preview Assets.xcassets */; };
+		9EE3A89928D49C670053CA7E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3A89828D49C670053CA7E /* Persistence.swift */; };
+		9EE3A89C28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3A89A28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodeld */; };
+		9EF8F56028FB240100845579 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF8F55F28FB240100845579 /* CloudKit.framework */; };
+		9EF8F56928FB48AC00845579 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F56428FB48AC00845579 /* CustomNavBarContainerView.swift */; };
+		9EF8F56A28FB48AC00845579 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F56528FB48AC00845579 /* CustomNavView.swift */; };
+		9EF8F56B28FB48AC00845579 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F56628FB48AC00845579 /* CustomNavLink.swift */; };
+		9EF8F56C28FB48AC00845579 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F56728FB48AC00845579 /* CustomNavBarView.swift */; };
+		9EF8F56D28FB48AC00845579 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F56828FB48AC00845579 /* CustomNavBarPreferenceKeys.swift */; };
+		9EF8F57A28FD8D9700845579 /* EmptyListPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F57628FD8D9700845579 /* EmptyListPlaceholder.swift */; };
+		9EF8F57B28FD8D9700845579 /* CircleCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F57728FD8D9700845579 /* CircleCrop.swift */; };
+		9EF8F57C28FD8D9700845579 /* RoundText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F57828FD8D9700845579 /* RoundText.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9E1E0572292813C500619D02 /* PlantRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantRow.swift; sourceTree = "<group>"; };
+		9E1E0573292813C500619D02 /* PlantDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantDetail.swift; sourceTree = "<group>"; };
+		9E1E0574292813C500619D02 /* PlantList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantList.swift; sourceTree = "<group>"; };
+		9E1E0578292813E200619D02 /* EditPlantSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlantSheet.swift; sourceTree = "<group>"; };
+		9E1E057A292813F000619D02 /* CareRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareRow.swift; sourceTree = "<group>"; };
+		9E1E057B292813F000619D02 /* CareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareList.swift; sourceTree = "<group>"; };
+		9E5B575B29004D75001F7F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9EBE76E628FDB6E10061D377 /* ImagePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerModel.swift; sourceTree = "<group>"; };
+		9EBE76EA28FDB89A0061D377 /* CameraNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraNavButton.swift; sourceTree = "<group>"; };
+		9ED57DE129252E9A00711928 /* ObjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectViewModel.swift; sourceTree = "<group>"; };
+		9ED57DF02925B71600711928 /* Plant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9ED57DF12925B71600711928 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Plant+CoreDataProperties.swift"; path = "../../Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9EE3A88C28D49C5E0053CA7E /* TheHomeCultivarJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheHomeCultivarJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE3A88F28D49C5E0053CA7E /* TheHomeCultivarJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheHomeCultivarJournalApp.swift; sourceTree = "<group>"; };
+		9EE3A89128D49C5E0053CA7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9EE3A89328D49C670053CA7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9EE3A89628D49C670053CA7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9EE3A89828D49C670053CA7E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		9EE3A89B28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheHomeCultivarJournal.xcdatamodel; sourceTree = "<group>"; };
+		9EE3A89D28D49C670053CA7E /* TheHomeCultivarJournal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheHomeCultivarJournal.entitlements; sourceTree = "<group>"; };
+		9EF8F55F28FB240100845579 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		9EF8F56428FB48AC00845579 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
+		9EF8F56528FB48AC00845579 /* CustomNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
+		9EF8F56628FB48AC00845579 /* CustomNavLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
+		9EF8F56728FB48AC00845579 /* CustomNavBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
+		9EF8F56828FB48AC00845579 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
+		9EF8F57628FD8D9700845579 /* EmptyListPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListPlaceholder.swift; sourceTree = "<group>"; };
+		9EF8F57728FD8D9700845579 /* CircleCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCrop.swift; sourceTree = "<group>"; };
+		9EF8F57828FD8D9700845579 /* RoundText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundText.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EE3A88928D49C5E0053CA7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF8F56028FB240100845579 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EE3A88328D49C5E0053CA7E = {
+			isa = PBXGroup;
+			children = (
+				9EE3A89D28D49C670053CA7E /* TheHomeCultivarJournal.entitlements */,
+				9EE3A88E28D49C5E0053CA7E /* TheHomeCultivarJournal */,
+				9EE3A88D28D49C5E0053CA7E /* Products */,
+				9EF8F55E28FB240100845579 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9EE3A88D28D49C5E0053CA7E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EE3A88C28D49C5E0053CA7E /* TheHomeCultivarJournal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EE3A88E28D49C5E0053CA7E /* TheHomeCultivarJournal */ = {
+			isa = PBXGroup;
+			children = (
+				9E5B575B29004D75001F7F2A /* Info.plist */,
+				9EE3A88F28D49C5E0053CA7E /* TheHomeCultivarJournalApp.swift */,
+				9EF8F57228FD86D600845579 /* Models */,
+				9EF8F57128FD86CD00845579 /* Views */,
+				9EF8F57328FD86EA00845579 /* ViewModels */,
+				9EF8F57428FD874100845579 /* Resources */,
+				9EE3A89528D49C670053CA7E /* Preview Content */,
+			);
+			path = TheHomeCultivarJournal;
+			sourceTree = "<group>";
+		};
+		9EE3A89528D49C670053CA7E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9EE3A89628D49C670053CA7E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9EF8F55E28FB240100845579 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EF8F55F28FB240100845579 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EF8F56328FB48AC00845579 /* CustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				9EF8F56428FB48AC00845579 /* CustomNavBarContainerView.swift */,
+				9EF8F56528FB48AC00845579 /* CustomNavView.swift */,
+				9EF8F56628FB48AC00845579 /* CustomNavLink.swift */,
+				9EF8F56728FB48AC00845579 /* CustomNavBarView.swift */,
+				9EF8F56828FB48AC00845579 /* CustomNavBarPreferenceKeys.swift */,
+				9EBE76EA28FDB89A0061D377 /* CameraNavButton.swift */,
+			);
+			path = CustomNavBar;
+			sourceTree = "<group>";
+		};
+		9EF8F57128FD86CD00845579 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EE3A89128D49C5E0053CA7E /* ContentView.swift */,
+				9EF8F59128FD8F6A00845579 /* PlantViews */,
+				9EF8F57528FD8D9700845579 /* HelperViews */,
+				9EF8F56328FB48AC00845579 /* CustomNavBar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9EF8F57228FD86D600845579 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9ED57DF02925B71600711928 /* Plant+CoreDataClass.swift */,
+				9ED57DF12925B71600711928 /* Plant+CoreDataProperties.swift */,
+				9EE3A89828D49C670053CA7E /* Persistence.swift */,
+				9EE3A89A28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodeld */,
+				9EBE76E628FDB6E10061D377 /* ImagePickerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9EF8F57328FD86EA00845579 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9ED57DE129252E9A00711928 /* ObjectViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9EF8F57428FD874100845579 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9EE3A89328D49C670053CA7E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9EF8F57528FD8D9700845579 /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				9EF8F57628FD8D9700845579 /* EmptyListPlaceholder.swift */,
+				9EF8F57728FD8D9700845579 /* CircleCrop.swift */,
+				9EF8F57828FD8D9700845579 /* RoundText.swift */,
+			);
+			name = HelperViews;
+			path = "../../../GrowHome copy/GrowHome/views/HelperViews";
+			sourceTree = "<group>";
+		};
+		9EF8F59128FD8F6A00845579 /* PlantViews */ = {
+			isa = PBXGroup;
+			children = (
+				9E1E0578292813E200619D02 /* EditPlantSheet.swift */,
+				9E1E0573292813C500619D02 /* PlantDetail.swift */,
+				9E1E0574292813C500619D02 /* PlantList.swift */,
+				9E1E0572292813C500619D02 /* PlantRow.swift */,
+				9E1E057B292813F000619D02 /* CareList.swift */,
+				9E1E057A292813F000619D02 /* CareRow.swift */,
+			);
+			path = PlantViews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9EE3A88B28D49C5E0053CA7E /* TheHomeCultivarJournal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EE3A8A028D49C670053CA7E /* Build configuration list for PBXNativeTarget "TheHomeCultivarJournal" */;
+			buildPhases = (
+				9EE3A88828D49C5E0053CA7E /* Sources */,
+				9EE3A88928D49C5E0053CA7E /* Frameworks */,
+				9EE3A88A28D49C5E0053CA7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheHomeCultivarJournal;
+			productName = TheHomeCultivarJournal;
+			productReference = 9EE3A88C28D49C5E0053CA7E /* TheHomeCultivarJournal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EE3A88428D49C5E0053CA7E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					9EE3A88B28D49C5E0053CA7E = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 9EE3A88728D49C5E0053CA7E /* Build configuration list for PBXProject "TheHomeCultivarJournal" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9EE3A88328D49C5E0053CA7E;
+			productRefGroup = 9EE3A88D28D49C5E0053CA7E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9EE3A88B28D49C5E0053CA7E /* TheHomeCultivarJournal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9EE3A88A28D49C5E0053CA7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE3A89728D49C670053CA7E /* Preview Assets.xcassets in Resources */,
+				9EE3A89428D49C670053CA7E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EE3A88828D49C5E0053CA7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE3A89928D49C670053CA7E /* Persistence.swift in Sources */,
+				9EE3A89228D49C5E0053CA7E /* ContentView.swift in Sources */,
+				9ED57DE229252E9A00711928 /* ObjectViewModel.swift in Sources */,
+				9E1E0579292813E200619D02 /* EditPlantSheet.swift in Sources */,
+				9EBE76E728FDB6E10061D377 /* ImagePickerModel.swift in Sources */,
+				9EF8F56C28FB48AC00845579 /* CustomNavBarView.swift in Sources */,
+				9E1E0575292813C500619D02 /* PlantRow.swift in Sources */,
+				9E1E057D292813F000619D02 /* CareList.swift in Sources */,
+				9E1E057C292813F000619D02 /* CareRow.swift in Sources */,
+				9EF8F57A28FD8D9700845579 /* EmptyListPlaceholder.swift in Sources */,
+				9EE3A89C28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodeld in Sources */,
+				9EF8F56B28FB48AC00845579 /* CustomNavLink.swift in Sources */,
+				9ED57DF32925B71600711928 /* Plant+CoreDataProperties.swift in Sources */,
+				9EF8F56D28FB48AC00845579 /* CustomNavBarPreferenceKeys.swift in Sources */,
+				9EE3A89028D49C5E0053CA7E /* TheHomeCultivarJournalApp.swift in Sources */,
+				9E1E0577292813C500619D02 /* PlantList.swift in Sources */,
+				9EF8F57B28FD8D9700845579 /* CircleCrop.swift in Sources */,
+				9ED57DF22925B71600711928 /* Plant+CoreDataClass.swift in Sources */,
+				9EF8F56928FB48AC00845579 /* CustomNavBarContainerView.swift in Sources */,
+				9EBE76EB28FDB89A0061D377 /* CameraNavButton.swift in Sources */,
+				9EF8F57C28FD8D9700845579 /* RoundText.swift in Sources */,
+				9E1E0576292813C500619D02 /* PlantDetail.swift in Sources */,
+				9EF8F56A28FB48AC00845579 /* CustomNavView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9EE3A89E28D49C670053CA7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9EE3A89F28D49C670053CA7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9EE3A8A128D49C670053CA7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheHomeCultivarJournal/TheHomeCultivarJournal.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TheHomeCultivarJournal/Preview Content\"";
+				DEVELOPMENT_TEAM = 5P8JPPPQ9D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheHomeCultivarJournal/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "THC Journal needs access to your Camera to take photos";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "THC Journal needs access to your Photos to add existing images";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				"OTHER_LIBTOOLFLAGS[arch=*]" = "";
+				PRODUCT_BUNDLE_IDENTIFIER = TripleMonkeyStudio.TheHomeCultivarJournal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9EE3A8A228D49C670053CA7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheHomeCultivarJournal/TheHomeCultivarJournal.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TheHomeCultivarJournal/Preview Content\"";
+				DEVELOPMENT_TEAM = 5P8JPPPQ9D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheHomeCultivarJournal/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "THC Journal needs access to your Camera to take photos";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "THC Journal needs access to your Photos to add existing images";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = TripleMonkeyStudio.TheHomeCultivarJournal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EE3A88728D49C5E0053CA7E /* Build configuration list for PBXProject "TheHomeCultivarJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE3A89E28D49C670053CA7E /* Debug */,
+				9EE3A89F28D49C670053CA7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EE3A8A028D49C670053CA7E /* Build configuration list for PBXNativeTarget "TheHomeCultivarJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE3A8A128D49C670053CA7E /* Debug */,
+				9EE3A8A228D49C670053CA7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9EE3A89A28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9EE3A89B28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodel */,
+			);
+			currentVersion = 9EE3A89B28D49C670053CA7E /* TheHomeCultivarJournal.xcdatamodel */;
+			path = TheHomeCultivarJournal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9EE3A88428D49C5E0053CA7E /* Project object */;
+}

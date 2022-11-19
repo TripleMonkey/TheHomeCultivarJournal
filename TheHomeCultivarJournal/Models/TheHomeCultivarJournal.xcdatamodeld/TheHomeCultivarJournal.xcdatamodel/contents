@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CareNote" representedClassName="CareNote" syncable="YES" codeGenerationType="class">
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="growSpace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrowSpace" inverseName="careNotes" inverseEntity="GrowSpace"/>
+        <relationship name="plant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="careNotes" inverseEntity="Plant"/>
+    </entity>
+    <entity name="GrowSpace" representedClassName="GrowSpace" syncable="YES" codeGenerationType="class">
+        <attribute name="enclosed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="careNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CareNote" inverseName="growSpace" inverseEntity="CareNote"/>
+        <relationship name="imageAssets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageAsset" inverseName="growSpace" inverseEntity="ImageAsset"/>
+        <relationship name="lightSources" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LightSource" inverseName="growSpace" inverseEntity="LightSource"/>
+        <relationship name="plants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Plant" inverseName="growSpace" inverseEntity="Plant"/>
+        <relationship name="roomSize" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RoomSize" inverseName="growSpace" inverseEntity="RoomSize"/>
+    </entity>
+    <entity name="ImageAsset" representedClassName="ImageAsset" syncable="YES" codeGenerationType="class">
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <relationship name="growSpace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrowSpace" inverseName="imageAssets" inverseEntity="GrowSpace"/>
+        <relationship name="plant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="imageAssets" inverseEntity="Plant"/>
+    </entity>
+    <entity name="LightSource" representedClassName="LightSource" syncable="YES" codeGenerationType="class">
+        <attribute name="artificial" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="watts" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="growSpace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrowSpace" inverseName="lightSources" inverseEntity="GrowSpace"/>
+    </entity>
+    <entity name="Plant" representedClassName="Plant" syncable="YES">
+        <attribute name="currentStageStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="growMedium" optional="YES" attributeType="String"/>
+        <attribute name="growStage" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="strainName" optional="YES" attributeType="String"/>
+        <relationship name="careNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CareNote" inverseName="plant" inverseEntity="CareNote"/>
+        <relationship name="growSpace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrowSpace" inverseName="plants" inverseEntity="GrowSpace"/>
+        <relationship name="imageAssets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageAsset" inverseName="plant" inverseEntity="ImageAsset"/>
+    </entity>
+    <entity name="RoomSize" representedClassName="RoomSize" syncable="YES" codeGenerationType="class">
+        <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="length" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="growSpace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrowSpace" inverseName="roomSize" inverseEntity="GrowSpace"/>
+    </entity>
+</model>
