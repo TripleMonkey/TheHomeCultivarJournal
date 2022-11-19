@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 import CloudKit
-
+import CoreData
 
 class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -23,45 +23,44 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
         _isShown = isShown
     }
     
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            image = uiImage
-//
-//            // Save to current selected object from modelData
-////            guard let data = image?.jpegData(compressionQuality: 1.0) else {
-////                return
-////            }
-//            let ckImage = CKImage(image: image!)
-//            saveImage(image: ckImage)
-//            //modelData.selectedObject!.imagesData.append(contentsOf: [data])
-//        }
-//        isShown = false
-//        //DEBUG
-//        //print(modelData.selectedObject?.imagesData.count ?? -1)
-//    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // Save to current selected object from modelData
+            guard let data = uiImage.jpegData(compressionQuality: 1.0) else {
+                return
+            }
+            guard let uiImage = UIImage(data: data) else {
+                return
+            }
+            saveImage(image: uiImage)
+        }
+        isShown = false
+        //DEBUG
+        //print(modelData.selectedObject?.imagesData.count ?? -1)
+    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         isShown = false
     }
     
-//    func saveImage(image: CKImage) {
-//        let imageRecord: CKRecord = image.record
-//        //let reference = CKRecord.Reference(recordID: modelData.selectedObject!.record.recordID, action: .deleteSelf)
-//        imageRecord.setValuesForKeys([
-//            "Data": image.dataFromImage,
-//            //"ReferenceRecordID": reference
-//        ])
-//        guard let _: Plant = modelData.selectedObject else { return }
-//        var count = 1
-//        CloudKitUtility.addRecord(item: image, completion: { result in
-//            DispatchQueue.main.async {
-//
-//                print(count)
-//                count += 1
-//           //     self.modelData.selectedObject!.imagesData.append(imageRecord.object(forKey: "DataFromImage") as? Data ?? Data())
-//            }
-//        })
-//    }
+    func saveImage(image: UIImage) {
+        let imageRecord: CKRecord = image.rec
+        //let reference = CKRecord.Reference(recordID: modelData.selectedObject!.record.recordID, action: .deleteSelf)
+        imageRecord.setValuesForKeys([
+            "Data": image.dataFromImage,
+            //"ReferenceRecordID": reference
+        ])
+        guard let _: Plant = modelData.selectedObject else { return }
+        var count = 1
+        CloudKitUtility.addRecord(item: image, completion: { result in
+            DispatchQueue.main.async {
+
+                print(count)
+                count += 1
+           //     self.modelData.selectedObject!.imagesData.append(imageRecord.object(forKey: "DataFromImage") as? Data ?? Data())
+            }
+        })
+    }
 }
 
 struct ImagePickerModel: UIViewControllerRepresentable {
