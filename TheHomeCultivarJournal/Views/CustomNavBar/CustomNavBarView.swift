@@ -10,13 +10,11 @@ import CoreData
 
 struct CustomNavBarView: View {
     
-   // @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) var dismiss
-    
     @State var addButtonTapped = false
-
+    
     let isParentNavBarView: Bool
-    var title: String 
+    let title: String
     let backButtonTitle: String
     let cameraButtonIsVisible: Bool
     
@@ -34,9 +32,10 @@ struct CustomNavBarView: View {
         // Present new sheet when tapped
         .sheet(isPresented: $addButtonTapped) {
             EditPlantSheet()
+                .environmentObject(PlantViewModel())
         }
     }
-        
+    
 }
 
 //MARK: PREVIEW
@@ -49,8 +48,7 @@ struct CustomNavBarView_Previews: PreviewProvider {
 }
 
 
-//MARK: View extensions
-
+//MARK: Buttons
 extension CustomNavBarView {
     
     @ViewBuilder
@@ -88,6 +86,7 @@ extension CustomNavBarView {
                 }
             })
         }
+        
     }
     
     private var titleSection: some View {

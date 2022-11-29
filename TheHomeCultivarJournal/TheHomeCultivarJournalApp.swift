@@ -9,12 +9,19 @@ import SwiftUI
 
 @main
 struct TheHomeCultivarJournalApp: App {
+    
     let persistenceController = PersistenceController.shared
-
+    let listVM = ListViewModel()
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-               .environment(\.managedObjectContext, persistenceController.viewContext)
+                // Create '@Environment(\.managedObjectContext) var context' on view to access context
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+                // Create '@EnvironmentObject var listVM: ListViewModel' on view to access/update list
+                .environmentObject(listVM)
         }
     }
 }

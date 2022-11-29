@@ -13,17 +13,9 @@ import CoreData
 struct EditPlantSheet: View {
     
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var plantViewModel: ObjectViewModel
+    @EnvironmentObject var plantVM: PlantViewModel
+    @EnvironmentObject var listVM: ListViewModel
     
-    
-    init() {
-        plantViewModel = ObjectViewModel()
-    }
-    
-    init(id: NSManagedObjectID) {
-        let plant = PersistenceController.shared.viewContext.object(with: id)
-        self.plantViewModel = ObjectViewModel(for: plant as? Plant)
-    }
     
     var body: some View {
         VStack
@@ -34,29 +26,29 @@ struct EditPlantSheet: View {
                 saveButton
             }
             Form {
-                Section(header: Text(plantViewModel.strainName)
+                Section(header: Text(plantVM.strainName)
                     .foregroundColor(.purple)
                     .fontWeight(.thin)
                     .sfRoundFont(for: .title3))
                 {
                     TextField("Strain",
-                              text: $plantViewModel.strainName
+                              text: $plantVM.strainName
                     )
                     TextField("Current Stage",
-                              text: $plantViewModel.growStage
+                              text: $plantVM.growStage
                     )
                     DatePicker("Stage started",
-                               selection: $plantViewModel.startDate,
+                               selection: $plantVM.startDate,
                                displayedComponents: .date
                     )
                 }
                 .sfRoundFont()
-                .customNavBarTitle(plantViewModel.strainName)
             }
         }
     }
 }
 
+//MARK: Buttons
 
 extension EditPlantSheet {
     
@@ -72,29 +64,16 @@ extension EditPlantSheet {
     private var saveButton: some View {
         
         Button {
-            plantViewModel.saveChanges()
+            plantVM.updatePlant()
+            listVM.saveData()
             dismiss()
         } label: {
             Text("Save")
                 .fontWeight(.bold)
         }
-        .disabled(plantViewModel.isValidObject())
+        .disabled(plantVM.isValidObject())
         .sfRoundFont(for: .subheadline)
         .padding()
     }
 }
 
-extension View {
-    
-    func stringToDate(string: String) -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy h:mm a"
-        return formatter.date(from: string) ?? Date()
-    }
-    
-    func dateToString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy h:mm a"
-        return formatter.string(from: date)
-    }
-}

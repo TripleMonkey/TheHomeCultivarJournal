@@ -12,7 +12,7 @@ struct PlantDetail: View {
     
     @StateObject var currentPlant: Plant
     @State private var showSheet = false
-    
+    @EnvironmentObject var listVM: ListViewModel
     
     var body: some View {
         ScrollView {
@@ -24,13 +24,18 @@ struct PlantDetail: View {
                             .foregroundColor(Color.purple)
                             .accessibilityLabel(currentPlant.strainName)
                             .sfRoundFont(for: .largeTitle)
+                            .onSubmit {
+                                listVM.saveData()
+                            }
+                            .customNavBarTitle(currentPlant.strainName)
                         Spacer()
                         Button("Edit"){
                             showSheet.toggle()
                         }
                         .sfRoundFont()
                         .sheet(isPresented: $showSheet) {
-                            EditPlantSheet(id: currentPlant.objectID)
+                            EditPlantSheet()
+                                .environmentObject(PlantViewModel(for: currentPlant))
                         }
                         .scenePadding()
                         .accessibilityLabel("Edit Button")
@@ -42,7 +47,6 @@ struct PlantDetail: View {
                     }
                     .sfRoundFont(for: .body)
                 }
-                .customNavBarTitle(currentPlant.strainName)
             }
             .padding()
         }
@@ -52,7 +56,23 @@ struct PlantDetail: View {
 struct PlantDetail_Previews: PreviewProvider {
     
     static var previews: some View {
-        PlantDetail(currentPlant: Plant(entity: Plant.entity(), insertInto: PersistenceController.shared.viewContext))
+        PlantDetail(currentPlant: Plant(entity: Plant.entity(), insertInto: PersistenceController.shared.container.viewContext))
     }
 }
 
+
+// Date Format for views
+extension View {
+    
+    func stringToDate(string: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yy h:mm a"
+        return formatter.date(from: string) ?? Date()
+    }
+    
+    func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yy h:mm a"
+        return formatter.string(from: date)
+    }
+}

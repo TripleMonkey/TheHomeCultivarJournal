@@ -12,15 +12,12 @@ import CoreData
 struct PlantList: View {
     
     @State private var showSheet = false
-    @Environment(\.presentationMode) var delete
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Plant.startDate, ascending: true)], animation: .default) private var fetchedPlants: FetchedResults<Plant>
-    
+    @EnvironmentObject var listVM: ListViewModel
     
     var body: some View {
         List {
             // Loop through existing plant array and add each to list
-            ForEach(fetchedPlants) { plant in
+            ForEach(listVM.savedPlants) { plant in
                 CustomNavLink(destination: PlantDetail(currentPlant: plant)
                     .customNavBarItems(
                         isParent: false,
@@ -31,14 +28,11 @@ struct PlantList: View {
                     PlantRow(currentPlant: plant)
                 })
             }
-            .onDelete(perform: { set in
-                PersistenceController.shared.deleteItems(offsets: set, fetchedPlants: fetchedPlants)
-                
-            })
+            .onDelete(perform: listVM.deletePlant)
         }
         // Add empty list placeholder
         .modifier(EmptyListPlaceholder(
-            listCount: fetchedPlants.count,
+            listCount: listVM.savedPlants.count,
             placeholder: Button(action: {
                 showSheet.toggle()
             })
@@ -49,9 +43,10 @@ struct PlantList: View {
         // Present new sheet when tapped
         .sheet(isPresented: $showSheet) {
             EditPlantSheet()
+                .environmentObject(PlantViewModel())
         }
     }
-
+    
     struct PlantList_Previews: PreviewProvider {
         
         static var previews: some View {

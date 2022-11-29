@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CustomNavBarContainerView<Content: View>: View{
     
+    
     let content: Content
     @State private var isParentNavBarView: Bool = false
     @State private var title: String = "Container Title"

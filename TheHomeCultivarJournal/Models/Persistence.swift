@@ -13,10 +13,10 @@ struct PersistenceController {
     static let shared = PersistenceController()
     let container: NSPersistentCloudKitContainer
 
-    var viewContext: NSManagedObjectContext {
-        container.viewContext
-    }
-    
+//    var viewContext: NSManagedObjectContext {
+//        container.viewContext
+//    }
+//
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "TheHomeCultivarJournal")
         if inMemory {
@@ -28,12 +28,12 @@ struct PersistenceController {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
     func save() {
         do {
-            try viewContext.save()
+            try container.viewContext.save()
         } catch {
             print("Failed to SAVE!: ", error.localizedDescription)
         }
@@ -41,8 +41,8 @@ struct PersistenceController {
     
     func deleteItems(offsets: IndexSet, fetchedPlants: FetchedResults<Plant>) {
         withAnimation {
-            offsets.map {fetchedPlants[$0] }.forEach(viewContext.delete)
-            PersistenceController.shared.save()
+            offsets.map {fetchedPlants[$0] }.forEach(container.viewContext.delete)
+            save()
         }
     }
 }
