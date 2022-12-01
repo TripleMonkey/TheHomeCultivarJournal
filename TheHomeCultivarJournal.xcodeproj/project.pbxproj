@@ -137,9 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				9EF8F56428FB48AC00845579 /* CustomNavBarContainerView.swift */,
+				9EF8F56728FB48AC00845579 /* CustomNavBarView.swift */,
 				9EF8F56528FB48AC00845579 /* CustomNavView.swift */,
 				9EF8F56628FB48AC00845579 /* CustomNavLink.swift */,
-				9EF8F56728FB48AC00845579 /* CustomNavBarView.swift */,
 				9EF8F56828FB48AC00845579 /* CustomNavBarPreferenceKeys.swift */,
 				9EBE76EA28FDB89A0061D377 /* CameraNavButton.swift */,
 			);
@@ -444,9 +444,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheHomeCultivarJournal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "THC Journal";
 				INFOPLIST_KEY_NSCameraUsageDescription = "THC Journal needs access to your Camera to take photos";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "THC Journal needs access to your Photos to add existing images";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -455,8 +457,12 @@
 				"OTHER_LIBTOOLFLAGS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = TripleMonkeyStudio.TheHomeCultivarJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -475,9 +481,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheHomeCultivarJournal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "THC Journal";
 				INFOPLIST_KEY_NSCameraUsageDescription = "THC Journal needs access to your Camera to take photos";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "THC Journal needs access to your Photos to add existing images";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -485,8 +493,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TripleMonkeyStudio.TheHomeCultivarJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

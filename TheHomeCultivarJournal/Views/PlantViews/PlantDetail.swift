@@ -46,6 +46,7 @@ struct PlantDetail: View {
                         Text(currentPlant.growMedium ?? "n/a")
                     }
                     .sfRoundFont(for: .body)
+                    
                 }
             }
             .padding()

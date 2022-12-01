@@ -100,13 +100,19 @@ extension CustomNavBarView {
     }
     
     private var editButton: some View {
-        EditButton()
-            .sfRoundFont()
+        // Keeps title centered and buttons fixed
+        ZStack(alignment: .trailing){
+            cameraButton
+                .hidden()
+            EditButton()
+                .sfRoundFont()
+        }
     }
     
     private var addButton: some View {
         // Keeps title centered and buttons fixed
         ZStack(alignment: .trailing){
+            
             editButton
                 .hidden()
             Button(action: {
@@ -124,7 +130,7 @@ extension CustomNavBarView {
             backButton
                 .hidden()
             CameraNavButton()
-                .sfRoundFont(for: .title)
+                .sfRoundFont()
         }
     }
 }

@@ -47,13 +47,13 @@ struct CustomNavBarContainerView<Content: View>: View{
 }
 
 //struct CustomNavBarContainerView_Previews: PreviewProvider {
-//    
-//    var plants = @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Plant.startDate, ascending: true)], animation: .default) var plants
-//    
+//
+//    @ObservedObject var listVM = ListViewModel()
+//
 //    static var previews: some View {
-//        
+//
 //        CustomNavBarContainerView {
-//            PlantList(plants: plants)
+//            PlantList()
 //                .customNavBarItems(isParent: false, title: "Preview", backButtonTitle: "Previous")
 //        }
 //        .preferredColorScheme(.dark)

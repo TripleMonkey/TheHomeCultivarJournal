@@ -13,12 +13,14 @@ struct CustomNavView<Content:View>: View {
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
+        UITableView.appearance().backgroundColor = .clear
     }
     
     var body: some View {
         NavigationView {
             CustomNavBarContainerView {
                 content
+                    .opacity(0.95)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -28,7 +30,7 @@ struct CustomNavView<Content:View>: View {
 struct CustomNavView_Previews: PreviewProvider {
     static var previews: some View {
         CustomNavView {
-            Color.red.ignoresSafeArea()
+            Color.red.opacity(0.3).ignoresSafeArea()
         }
     }
 }
