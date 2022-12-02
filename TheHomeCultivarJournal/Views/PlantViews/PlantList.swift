@@ -43,26 +43,8 @@ struct PlantList: View {
                 .listStyle(.insetGrouped)
                 
                 // Add empty list placeholder
-                .modifier(EmptyListPlaceholder(
-                    listCount: listVM.savedPlants.count,
-                    placeholder: Button(action: {
-                        showSheet.toggle()
-                    })
-                    {
-                        Label("Tap to start your first grow", systemImage: "pencil")
-                            .padding()
-                            
-                    }
-                        .background(.white)
-                        .foregroundColor(.green)
-                        .cornerRadius(20)
-                        .shadow(radius: 0.9, x: -5, y: 5)))
+                .emptyListButton(for: listVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
                 
-                // Present new sheet when tapped
-                .sheet(isPresented: $showSheet) {
-                    EditPlantSheet()
-                        .environmentObject(PlantViewModel())
-                }
             } else {
                 // Fallback on earlier versions
                 List {
@@ -84,26 +66,7 @@ struct PlantList: View {
                 .listStyle(.insetGrouped)
                 
                 // Add empty list placeholder
-                .modifier(EmptyListPlaceholder(
-                    listCount: listVM.savedPlants.count,
-                    placeholder: Button(action: {
-                        showSheet.toggle()
-                    })
-                    {
-                        Label("Tap to start your first grow", systemImage: "pencil")
-                            .padding()
-                            
-                    }
-                        .background(.white)
-                        .foregroundColor(.green)
-                        .cornerRadius(20)
-                        .shadow(radius: 0.9, x: -5, y: 5)))
-                
-                // Present new sheet when tapped
-                .sheet(isPresented: $showSheet) {
-                    EditPlantSheet()
-                        .environmentObject(PlantViewModel())
-                }
+                .emptyListButton(for: listVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
             }
         }
     }

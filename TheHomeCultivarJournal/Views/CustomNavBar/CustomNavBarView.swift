@@ -101,7 +101,7 @@ extension CustomNavBarView {
     
     private var editButton: some View {
         // Keeps title centered and buttons fixed
-        ZStack(alignment: .trailing){
+        ZStack(alignment: .leading){
             cameraButton
                 .hidden()
             EditButton()

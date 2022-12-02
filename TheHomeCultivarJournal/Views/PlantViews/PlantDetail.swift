@@ -35,6 +35,7 @@ struct PlantDetail: View {
                         .sfRoundFont()
                         .sheet(isPresented: $showSheet) {
                             EditPlantSheet()
+                                // Pass current Plant vm to sheet
                                 .environmentObject(PlantViewModel(for: currentPlant))
                         }
                         .scenePadding()
@@ -46,6 +47,7 @@ struct PlantDetail: View {
                         Text(currentPlant.growMedium ?? "n/a")
                     }
                     .sfRoundFont(for: .body)
+                    //GridView()
                     
                 }
             }
