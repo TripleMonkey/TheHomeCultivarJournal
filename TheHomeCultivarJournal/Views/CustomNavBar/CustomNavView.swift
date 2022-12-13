@@ -13,7 +13,6 @@ struct CustomNavView<Content:View>: View {
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
-        UITableView.appearance().backgroundColor = .clear
     }
     
     var body: some View {

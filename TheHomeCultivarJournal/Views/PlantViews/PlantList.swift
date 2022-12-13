@@ -14,15 +14,9 @@ struct PlantList: View {
     @State private var showSheet = false
     @EnvironmentObject var listVM: ListViewModel
     
-    init() {
-        UIScrollView.appearance().backgroundColor = .clear
-    }
     
     var body: some View {
         ZStack {
-            Image("flowerCloseUp")
-                .resizable()
-                .ignoresSafeArea()
             if #available(iOS 16.0, *) {
                 List {
                     // Loop through existing plant array and add each to list
@@ -38,13 +32,10 @@ struct PlantList: View {
                         })
                     }
                     .onDelete(perform: listVM.deletePlant)
+                    .background(.clear)
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.insetGrouped)
-                
-                // Add empty list placeholder
-                .emptyListButton(for: listVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
-                
             } else {
                 // Fallback on earlier versions
                 List {
@@ -62,13 +53,11 @@ struct PlantList: View {
                     }
                     .onDelete(perform: listVM.deletePlant)
                 }
-                .listRowBackground(Image("flowerCloseUp"))
                 .listStyle(.insetGrouped)
-                
-                // Add empty list placeholder
-                .emptyListButton(for: listVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
             }
         }
+        // Add empty list placeholder
+        .emptyListButton(for: listVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
     }
     
     struct PlantList_Previews: PreviewProvider {

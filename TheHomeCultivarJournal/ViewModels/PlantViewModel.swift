@@ -16,15 +16,32 @@ final class PlantViewModel: ObservableObject {
     @Published var growMedium = ""
     @Published var startDate = Date()
     @Published var ID: NSManagedObjectID?
+    @Published var imageAssets: [ImageAsset] = []
+    
+    @Published var currentPlant: Plant?
     
     init(for plant: Plant? = nil)  {
         guard let existingPlant = plant else { return }
+        self.currentPlant = existingPlant
         
+        fetchImages()
         self.ID = existingPlant.objectID
         self.strainName = existingPlant.strainName
         self.growStage = existingPlant.growStage ?? "n/a"
         self.growMedium = existingPlant.growMedium ?? ""
         self.startDate = existingPlant.startDate ?? Date()
+        
+    }
+    
+    func fetchImages() {
+        let request = NSFetchRequest<ImageAsset>(entityName: "ImageAsset")
+        do {
+            imageAssets = try PersistenceController.shared.container.viewContext.fetch(request)
+            
+            print("images: \(imageAssets.count)")
+        } catch let error {
+            print("ERROR FETCHING: \(error)")
+        }
     }
     
     func objectId(plant: Plant) {
@@ -33,7 +50,7 @@ final class PlantViewModel: ObservableObject {
     
     // Use on buttons to disable save actions when true
     func isValidObject() -> Bool {
-        return strainName.isEmpty
+        return !strainName.isEmpty
     }
     
     func updatePlant() {

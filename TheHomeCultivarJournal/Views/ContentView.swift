@@ -13,10 +13,19 @@ struct ContentView: View {
     
     var body: some View {
         CustomNavView {
-            PlantList()
+            ZStack {
+                Color("BgFilterColor")
+                    .ignoresSafeArea()
+                    .opacity(0.5)
+                Image("flowerCloseUp")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .opacity(0.75)
+                PlantList() 
+            }
         }
     }
-
+    
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()

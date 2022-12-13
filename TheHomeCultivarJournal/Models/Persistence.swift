@@ -13,10 +13,6 @@ struct PersistenceController {
     static let shared = PersistenceController()
     let container: NSPersistentCloudKitContainer
 
-//    var viewContext: NSManagedObjectContext {
-//        container.viewContext
-//    }
-//
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "TheHomeCultivarJournal")
         if inMemory {

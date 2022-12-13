@@ -19,7 +19,7 @@ struct CustomNavBarIsParentPrefernceKey: PreferenceKey {
 }
 
 struct CustomNavBarTitlePrefernceKey: PreferenceKey {
-    static var defaultValue: String = ""
+    static var defaultValue: String = "Plants"
     
     static func reduce(value: inout String, nextValue: () -> String) {
         value = nextValue()
@@ -43,6 +43,14 @@ struct CustomNavBarCameraButtonPreferenceKey: PreferenceKey {
     
 }
 
+struct CustomNavBarSettingsShownPrefernceKey: PreferenceKey {
+    static var defaultValue: Bool = false
+    
+    static func reduce(value: inout Bool, nextValue: () -> Bool) {
+        value = nextValue()
+    }
+}
+
 
 //MARK: VIEW FUNCTIONS
 extension View {
@@ -63,12 +71,17 @@ extension View {
         preference(key: CustomNavBarCameraButtonPreferenceKey.self, value: cameraButtonIsVisible)
     }
     
-    func customNavBarItems(isParent: Bool = true, title: String = "", backButtonTitle: String = "", cameraButtonIsVisible: Bool = false) -> some View {
+    func settingsViewShown(_ isShown: Bool) -> some View {
+        preference(key: CustomNavBarSettingsShownPrefernceKey.self, value: isShown)
+    }
+    
+    func customNavBarItems(isParent: Bool = true, title: String = "", backButtonTitle: String = "", cameraButtonIsVisible: Bool = false, settingsViewShown: Bool = false) -> some View {
         self
             .customNavBarIsParent(isParent)
             .customNavBarTitle(title)
             .customNavBarBackButtonTitle(backButtonTitle)
             .customNavBarCameraButtonVisible(cameraButtonIsVisible)
+            .settingsViewShown(settingsViewShown)
         
     }
 }

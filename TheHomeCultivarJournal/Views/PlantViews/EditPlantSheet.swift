@@ -71,7 +71,7 @@ extension EditPlantSheet {
             Text("Save")
                 .fontWeight(.bold)
         }
-        .disabled(plantVM.isValidObject())
+        .disabled(!plantVM.isValidObject())
         .sfRoundFont(for: .subheadline)
         .padding()
     }

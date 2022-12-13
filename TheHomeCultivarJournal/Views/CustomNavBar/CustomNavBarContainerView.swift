@@ -16,6 +16,7 @@ struct CustomNavBarContainerView<Content: View>: View{
     @State private var title: String = "Container Title"
     @State private var backButtonTitle: String = "default"
     @State private var showCameraButton: Bool = true
+    @State private var showSettingsView: Bool = false
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
@@ -24,12 +25,17 @@ struct CustomNavBarContainerView<Content: View>: View{
     var body: some View {
         VStack(spacing: 0) {
             CustomNavBarView(
+                showSettings: $showSettingsView,
                 isParentNavBarView: isParentNavBarView,
                 title: title,
                 backButtonTitle: backButtonTitle,
                 cameraButtonIsVisible: showCameraButton)
-            content
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            ZStack {
+                content
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                DeviceSettingsView(isShown: $showSettingsView)
+            }
         }
         .onPreferenceChange(CustomNavBarIsParentPrefernceKey.self, perform: {
             value in
@@ -43,19 +49,8 @@ struct CustomNavBarContainerView<Content: View>: View{
             value in
             self.backButtonTitle = value
         })
+        .onPreferenceChange(CustomNavBarSettingsShownPrefernceKey.self, perform: { value in
+            self.showSettingsView = value
+        })
     }
 }
-
-//struct CustomNavBarContainerView_Previews: PreviewProvider {
-//
-//    @ObservedObject var listVM = ListViewModel()
-//
-//    static var previews: some View {
-//
-//        CustomNavBarContainerView {
-//            PlantList()
-//                .customNavBarItems(isParent: false, title: "Preview", backButtonTitle: "Previous")
-//        }
-//        .preferredColorScheme(.dark)
-//    }
-//}

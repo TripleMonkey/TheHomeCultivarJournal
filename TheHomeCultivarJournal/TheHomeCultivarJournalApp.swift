@@ -22,6 +22,9 @@ struct TheHomeCultivarJournalApp: App {
             
                 // Create '@EnvironmentObject var listVM: ListViewModel' on view to access/update list
                 .environmentObject(listVM)
+                
+                //
+                //.environment(\.colorScheme, DeviceSettingsViewModel.shared.darkMode ? .dark : .light)
         }
     }
 }

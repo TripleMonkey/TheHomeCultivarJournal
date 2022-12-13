@@ -13,10 +13,11 @@ struct PlantDetail: View {
     @StateObject var currentPlant: Plant
     @State private var showSheet = false
     @EnvironmentObject var listVM: ListViewModel
+
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .center) {
+            LazyVStack(alignment: .center) {
                 CircleCrop(image: Image("budonpurplebg"))
                 VStack(alignment: .leading) {
                     HStack(alignment: .lastTextBaseline) {
@@ -47,17 +48,25 @@ struct PlantDetail: View {
                         Text(currentPlant.growMedium ?? "n/a")
                     }
                     .sfRoundFont(for: .body)
-                    //GridView()
                     
+                    Section(content: {
+                        ImageGridView()
+                    }, header: {
+                        Text("Images")
+                    })
                 }
             }
             .padding()
+            .accentColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
+            
         }
+        
+        
     }
 }
 
 struct PlantDetail_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         PlantDetail(currentPlant: Plant(entity: Plant.entity(), insertInto: PersistenceController.shared.container.viewContext))
     }

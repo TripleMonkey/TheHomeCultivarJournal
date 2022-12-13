@@ -11,7 +11,6 @@ import SwiftUI
 
 final class ListViewModel: ObservableObject {
     
-    @Environment(\.managedObjectContext) var context
     @Published var savedPlants: [Plant] = []
     
     

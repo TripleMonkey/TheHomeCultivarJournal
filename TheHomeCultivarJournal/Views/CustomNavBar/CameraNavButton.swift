@@ -22,11 +22,9 @@ struct CameraNavButton: View {
                 .sfRoundFont(for: .title)
                 .offset(y: -3)
         })
-        
         .sheet(isPresented: $showImageSheet, content: {
             ImagePickerModel(image: $image, isShown: $showImageSheet, sourceType: self.sourceType)
         })
-        
         .confirmationDialog("Get image from",
                             isPresented: $showOptionsDialog) {
             Button("Camera", action: {
