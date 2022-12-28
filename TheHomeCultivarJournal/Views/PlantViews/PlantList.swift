@@ -12,16 +12,16 @@ import CoreData
 struct PlantList: View {
     
     @State private var showSheet = false
-    @EnvironmentObject var listVM: ListViewModel
-    
+    @EnvironmentObject var dataVM: DataViewModel
     
     var body: some View {
         ZStack {
             if #available(iOS 16.0, *) {
                 List {
                     // Loop through existing plant array and add each to list
-                    ForEach(listVM.savedPlants) { plant in
-                        CustomNavLink(destination: PlantDetail(currentPlant: plant)
+                    ForEach(dataVM.savedPlants) { plant in
+                        CustomNavLink(destination: PlantDetail(plant: plant)
+                            .environmentObject(PlantViewModel(for: plant))
                             .customNavBarItems(
                                 isParent: false,
                                 title: plant.strainName,
@@ -31,7 +31,7 @@ struct PlantList: View {
                             PlantRow(currentPlant: plant)
                         })
                     }
-                    .onDelete(perform: listVM.deletePlant)
+                    .onDelete(perform: dataVM.deletePlant)
                     .background(.clear)
                 }
                 .scrollContentBackground(.hidden)
@@ -40,8 +40,8 @@ struct PlantList: View {
                 // Fallback on earlier versions
                 List {
                     // Loop through existing plant array and add each to list
-                    ForEach(listVM.savedPlants) { plant in
-                        CustomNavLink(destination: PlantDetail(currentPlant: plant)
+                    ForEach(dataVM.savedPlants) { plant in
+                        CustomNavLink(destination: PlantDetail(plant: plant)
                             .customNavBarItems(
                                 isParent: false,
                                 title: plant.strainName,
@@ -51,21 +51,21 @@ struct PlantList: View {
                             PlantRow(currentPlant: plant)
                         })
                     }
-                    .onDelete(perform: listVM.deletePlant)
+                    .onDelete(perform: dataVM.deletePlant)
                 }
                 .listStyle(.insetGrouped)
             }
         }
         // Add empty list placeholder
-        .emptyListButton(for: listVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
+        .emptyListButton(for: dataVM.savedPlants.count, message: "Tap to start your first grow", iconStringName: "pencil")
     }
     
     struct PlantList_Previews: PreviewProvider {
-        @EnvironmentObject var listVM: ListViewModel
+        @EnvironmentObject var listVM: DataViewModel
         
         static var previews: some View {
             PlantList()
-                .environmentObject(ListViewModel())
+                .environmentObject(DataViewModel.shared)
         }
     }
 }

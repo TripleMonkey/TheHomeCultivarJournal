@@ -39,7 +39,7 @@ struct CustomNavBarView: View {
         .sheet(isPresented: $addButtonTapped) {
             EditPlantSheet()
                 .animation(.easeInOut, value: 10)
-                .environmentObject(PlantViewModel())
+                .environmentObject(PlantViewModel.shared)
         }
     }
 }

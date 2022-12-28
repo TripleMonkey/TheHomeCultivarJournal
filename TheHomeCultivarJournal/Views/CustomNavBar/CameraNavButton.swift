@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CameraNavButton: View {
     
+    @Environment(\.managedObjectContext) var context
     let cameraIcon: Image = Image(systemName: "camera.fill")
     
     @State private var showOptionsDialog: Bool = false
@@ -23,13 +24,14 @@ struct CameraNavButton: View {
                 .offset(y: -3)
         })
         .sheet(isPresented: $showImageSheet, content: {
-            ImagePickerModel(image: $image, isShown: $showImageSheet, sourceType: self.sourceType)
+            ImagePickerViewModel(image: $image, isShown: $showImageSheet, sourceType: self.sourceType)
+                .environment(\.managedObjectContext, context)
         })
         .confirmationDialog("Get image from",
                             isPresented: $showOptionsDialog) {
             Button("Camera", action: {
+                sourceType = .camera
                 showImageSheet = true
-                self.sourceType = .camera
             })
             Button("Photo Library", action: {
                 showImageSheet = true

@@ -10,25 +10,32 @@ import CoreData
 
 struct PlantDetail: View {
     
-    @StateObject var currentPlant: Plant
+    
+    @EnvironmentObject var plantVM: PlantViewModel
+    @EnvironmentObject var listVM: DataViewModel
+    
     @State private var showSheet = false
-    @EnvironmentObject var listVM: ListViewModel
-
+    //@State private var currentPlant: Plant
+    
+    init(plant: Plant) {
+        plantVM.currentPlant = plant
+    }
     
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .center) {
-                CircleCrop(image: Image("budonpurplebg"))
+                CircleCrop(image: plantVM.headlineImage)
                 VStack(alignment: .leading) {
                     HStack(alignment: .lastTextBaseline) {
-                        TextField("Strain",text: $currentPlant.strainName)
+                        TextField("Strain",text: $plantVM.strainName)
                             .foregroundColor(Color.purple)
-                            .accessibilityLabel(currentPlant.strainName)
+                            .accessibilityLabel(plantVM.strainName)
                             .sfRoundFont(for: .largeTitle)
                             .onSubmit {
+                                plantVM.updatePlant()
                                 listVM.saveData()
                             }
-                            .customNavBarTitle(currentPlant.strainName)
+                            .customNavBarTitle(plantVM.strainName)
                         Spacer()
                         Button("Edit"){
                             showSheet.toggle()
@@ -37,20 +44,22 @@ struct PlantDetail: View {
                         .sheet(isPresented: $showSheet) {
                             EditPlantSheet()
                                 // Pass current Plant vm to sheet
-                                .environmentObject(PlantViewModel(for: currentPlant))
+                                .environmentObject(PlantViewModel(for: plantVM.currentPlant))
                         }
                         .scenePadding()
                         .accessibilityLabel("Edit Button")
                     }
                     Group {
-                        Text(dateToString(date: currentPlant.startDate ?? Date()))
-                        Text(currentPlant.growStage ?? "n/a")
-                        Text(currentPlant.growMedium ?? "n/a")
+                        Text(dateToString(date: plantVM.startDate))
+                        Text(plantVM.growStage)
+                        Text(plantVM.growMedium)
                     }
                     .sfRoundFont(for: .body)
                     
                     Section(content: {
-                        ImageGridView()
+                        if !plantVM.imageAssets.isEmpty {
+                            ImageGridView(images: plantVM.imageAssets)
+                        }
                     }, header: {
                         Text("Images")
                     })
@@ -58,7 +67,6 @@ struct PlantDetail: View {
             }
             .padding()
             .accentColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
-            
         }
         
         
@@ -68,7 +76,7 @@ struct PlantDetail: View {
 struct PlantDetail_Previews: PreviewProvider {
 
     static var previews: some View {
-        PlantDetail(currentPlant: Plant(entity: Plant.entity(), insertInto: PersistenceController.shared.container.viewContext))
+        PlantDetail(plant: Plant(entity: Plant.entity(), insertInto: PersistenceController.shared.container.viewContext))
     }
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct DeviceSettingsView: View {
     
     @Environment(\.dismiss) var dismiss
-    @State var darkMode: Bool = false
+    @AppStorage("darkMode") var darkMode: Bool = false
     @AppStorage("userName") var userName: String = ""
     @Binding var isShown: Bool
     

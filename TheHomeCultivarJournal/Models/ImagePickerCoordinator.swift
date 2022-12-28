@@ -12,40 +12,43 @@ import CoreData
 
 class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @EnvironmentObject var plantVM: PlantViewModel
+    var objectID: NSManagedObjectID
     @Binding var image: UIImage?
     @Binding var isShown: Bool
     
-    init(image: Binding<UIImage?>, isShown: Binding<Bool>) {
+    init(objectID: NSManagedObjectID, image: Binding<UIImage?>, isShown: Binding<Bool>) {
+        self.objectID = objectID
         _image = image
         _isShown = isShown
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            // Save to current selected object
-            guard let data = uiImage.jpegData(compressionQuality: 1.0), let uiImage = UIImage(data: data) else {
-                return
-            }
-            saveImage(image: uiImage)
-        }
-        isShown = false
-    }
-    
+    // Cancel image selection
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         isShown = false
     }
     
-    func saveImage(image: UIImage) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // Convert UIImage to Data
+            guard let data = uiImage.jpegData(compressionQuality: 1.0) else {
+                return
+            }
+            // Save Data to imageAsset
+            saveImageAsset(data: data)
+        }
+        isShown = false
+    }
+    
+    func saveImageAsset(data: Data) {
+        // Create ImageAsset for Context
         let imageAsset = ImageAsset(entity: ImageAsset.entity(), insertInto: PersistenceController.shared.container.viewContext)
-        //let id = plantViewModel.ID
-        //let reference = CKRecord.Reference(recordID: plantViewModel.ID, action: .deleteSelf)
-        guard let data = image.jpegData(compressionQuality: 1.0) else { return }
-        
+        // Assign data value to ImageAsset
         imageAsset.setValuesForKeys([
             "imageData": data,
-     //       "referenceRecord": reference.recordID.recordName
         ])
-        
+        // Save to current plant and CD or print error
+        plantVM.currentImageAsset = imageAsset
         do {
             try PersistenceController.shared.container.viewContext.save()
             print("Image saved to CD")

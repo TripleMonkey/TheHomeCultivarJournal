@@ -14,7 +14,7 @@ struct EditPlantSheet: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var plantVM: PlantViewModel
-    @EnvironmentObject var listVM: ListViewModel
+    @EnvironmentObject var listVM: DataViewModel
     
     
     var body: some View {
@@ -43,6 +43,11 @@ struct EditPlantSheet: View {
                     )
                 }
                 .sfRoundFont()
+                Section(content: {
+                    ImageGridView(images: plantVM.imageAssets)
+                }, header: {
+                    Text("Images")
+                })
             }
         }
     }

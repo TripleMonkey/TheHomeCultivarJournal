@@ -8,17 +8,17 @@
 import Foundation
 import SwiftUI
 
-final class DeviceSettingsViewModel: ObservableObject {
-    
-//    @Published var darkMode = false
-//    @Published var userName = ""
-    
-    @AppStorage("darkMode") var darkMode = false
-    @AppStorage("userName") var userName: String = ""
-    
-    @State var isShown: Bool = false
-    
-    static var shared = DeviceSettingsViewModel()
-    
-    private init() { }
-}
+//final class DeviceSettingsViewModel: ObservableObject {
+//    
+////    @Published var darkMode = false
+////    @Published var userName = ""
+//    
+//    @AppStorage("darkMode") var darkMode = false
+//    @AppStorage("userName") var userName: String = ""
+//    
+//    @State var isShown: Bool = false
+//    
+//    static var shared = DeviceSettingsViewModel()
+//    
+//    private init() { }
+//}

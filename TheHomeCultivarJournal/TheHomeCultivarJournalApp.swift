@@ -11,8 +11,7 @@ import SwiftUI
 struct TheHomeCultivarJournalApp: App {
     
     let persistenceController = PersistenceController.shared
-    let listVM = ListViewModel()
-    
+    let dataVM = DataViewModel.shared
     
     var body: some Scene {
         WindowGroup {
@@ -20,8 +19,8 @@ struct TheHomeCultivarJournalApp: App {
                 // Create '@Environment(\.managedObjectContext) var context' on view to access context
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
             
-                // Create '@EnvironmentObject var listVM: ListViewModel' on view to access/update list
-                .environmentObject(listVM)
+                // Create '@EnvironmentObject var dataVM: DataViewModel' on view to access/update Core Data
+                .environmentObject(dataVM)
                 
                 //
                 //.environment(\.colorScheme, DeviceSettingsViewModel.shared.darkMode ? .dark : .light)
